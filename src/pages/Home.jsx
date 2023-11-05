@@ -44,7 +44,7 @@ const Home = () => {
             lg: "9",
             xl: "9",
             xxl: "9",
-          }}
+          }} 
           className="layout"
         >
           {/* left side */}
