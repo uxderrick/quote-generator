@@ -21,7 +21,6 @@
   height: fit-content;
   max-width: 840px;
   max-height: 840px;
-  padding: var(--spacing-3, 40px);
   border-radius: var(--4, 12px);
   border: 1px solid var(--disabled-content, #5a6165);
   background: var(--neutral-2, #1b1b1f);
@@ -75,6 +74,7 @@
     height: 100vh;
     background-color: #0d0d0d;
     overflow: scroll;
+    padding-bottom: 40px;
   }
 
   .result {
