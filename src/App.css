@@ -1,3 +1,7 @@
+@import "@radix-ui/colors/black-alpha.css";
+@import "@radix-ui/colors/jade.css";
+@import "@radix-ui/colors/green.css";
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -118,10 +122,6 @@
   border: 1px solid var(--success-10, #35b979);
   background: var(--success-10, #35b979);
 }
-
-@import "@radix-ui/colors/black-alpha.css";
-@import "@radix-ui/colors/jade.css";
-@import "@radix-ui/colors/green.css";
 
 /* reset */
 button {
