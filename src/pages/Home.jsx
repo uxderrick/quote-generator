@@ -12,6 +12,10 @@ import { ShuffleIcon } from "@radix-ui/react-icons";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
 
 const Home = () => {
+  const clickDerrickURL = () => {
+    window.open("https://www.twitter.com/uxderrick");
+  };
+
   return (
     <>
       <Flex className="box no-bg" direction="row">
@@ -44,7 +48,7 @@ const Home = () => {
             lg: "9",
             xl: "9",
             xxl: "9",
-          }} 
+          }}
           className="layout"
         >
           {/* left side */}
@@ -54,13 +58,16 @@ const Home = () => {
                 src="https://raw.githubusercontent.com/uxderrick/quote-generator/2684162b30ae3bca4f59f0f118498819ba6adea7/src/assets/full%20logo.svg"
                 height="40"
               ></img>
-              <Text align="center" size="2" className="link">
+              <Text
+                align="center"
+                size="2"
+                className="link"
+                onClick={clickDerrickURL}
+              >
                 by UXDerrick
               </Text>
             </Flex>
-  
 
-  
             <Separator
               color="green"
               orientation="horizontal"
