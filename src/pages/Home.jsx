@@ -50,7 +50,10 @@ const Home = () => {
           {/* left side */}
           <Flex direction="column" gap="6" className="left-side">
             <Flex direction="column" gap="2" justify="center" align="center">
-              <img src="src/assets/full logo.svg" height="40"></img>
+              <img
+                src="https://raw.githubusercontent.com/uxderrick/quote-generator/2684162b30ae3bca4f59f0f118498819ba6adea7/src/assets/full%20logo.svg"
+                height="40"
+              ></img>
               <Text align="center" size="2" className="link">
                 by UXDerrick
               </Text>
