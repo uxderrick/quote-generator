@@ -22,6 +22,7 @@ const Home = () => {
     const options = {
       logging: true,
       useCors: true,
+      scale: 10,
     };
 
     html2canvas(quote, options).then(function (canvas) {
@@ -51,7 +52,7 @@ const Home = () => {
           }}
           direction={{
             initial: "column",
-            sm: "column",
+            sm: "row",
             lg: "row",
             xl: "row",
             xxl: "row",
@@ -73,7 +74,7 @@ const Home = () => {
               justify="center"
               align="center"
               style={{
-                maxWidth: "840px",
+                maxWidth: "400px",
               }}
             >
               <img
@@ -96,7 +97,7 @@ const Home = () => {
               size="4"
               style={{
                 background: "gray",
-                maxWidth: "840px",
+                maxWidth: "400px",
               }}
             />
 
@@ -205,13 +206,29 @@ const Home = () => {
               xxl: "9",
             }}
             gap={{
-              initial: "6",
-              sm: "9",
-              lg: "9",
-              xl: "9",
-              xxl: "9",
+              initial: "3",
+              sm: "3",
+              lg: "3",
+              xl: "3",
+              xxl: "3",
             }}
           >
+            <Text
+              align="left"
+              size={{
+                initial: "2",
+                sm: "5",
+                lg: "5",
+                xl: "5",
+                xxl: "5",
+              }}
+              className="author"
+              style={{
+                lineHeight: "1.3",
+              }}
+            >
+              Derrick Tsorme
+            </Text>
             <Text
               align="left"
               size={{
@@ -228,22 +245,6 @@ const Home = () => {
             >
               Lore, ipsum dolor sit amet consectetur adipisicing elit. Quisquam
               a quibusdam doloribus, voluptatem, voluptatum, quod voluptate
-            </Text>
-            <Text
-              align="left"
-              size={{
-                initial: "2",
-                sm: "5",
-                lg: "5",
-                xl: "5",
-                xxl: "5",
-              }}
-              className="author"
-              style={{
-                lineHeight: "1.3",
-              }}
-            >
-              Derrick Tsorme
             </Text>
           </Flex>
         </Flex>
