@@ -37,7 +37,7 @@ const Home = () => {
           }}
           direction={{
             initial: "column",
-            sm: "row",
+            sm: "column",
             lg: "row",
             xl: "row",
             xxl: "row",
@@ -53,7 +53,15 @@ const Home = () => {
         >
           {/* left side */}
           <Flex direction="column" gap="6" className="left-side">
-            <Flex direction="column" gap="2" justify="center" align="center">
+            <Flex
+              direction="column"
+              gap="2"
+              justify="center"
+              align="center"
+              style={{
+                maxWidth: "840px",
+              }}
+            >
               <img
                 src="https://raw.githubusercontent.com/uxderrick/quote-generator/2684162b30ae3bca4f59f0f118498819ba6adea7/src/assets/full%20logo.svg"
                 height="40"
@@ -74,6 +82,7 @@ const Home = () => {
               size="4"
               style={{
                 background: "gray",
+                maxWidth: "840px",
               }}
             />
 
