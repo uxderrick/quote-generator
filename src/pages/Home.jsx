@@ -217,9 +217,9 @@ const Home = () => {
               align="left"
               size={{
                 initial: "2",
-                sm: "5",
-                lg: "5",
-                xl: "5",
+                sm: "3",
+                lg: "3",
+                xl: "3",
                 xxl: "5",
               }}
               className="author"
