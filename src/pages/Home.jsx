@@ -10,10 +10,26 @@ import {
 } from "@radix-ui/themes";
 import { ShuffleIcon } from "@radix-ui/react-icons";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
+import html2canvas from "html2canvas";
 
 const Home = () => {
   const clickDerrickURL = () => {
     window.open("https://www.twitter.com/uxderrick");
+  };
+
+  const downloadImage = () => {
+    const quote = document.getElementById("quote");
+    const options = {
+      logging: true,
+      useCors: true,
+    };
+
+    html2canvas(quote, options).then(function (canvas) {
+      const link = document.createElement("a");
+      link.download = "quote.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    });
   };
 
   return (
@@ -29,8 +45,6 @@ const Home = () => {
             xxl: "9",
           }}
           justify={{
-            initial: "",
-            sm: "",
             lg: "center",
             xl: "center",
             xxl: "center",
@@ -169,13 +183,15 @@ const Home = () => {
               color="green"
               className="button no-bg"
               size="2"
+              onClick={downloadImage}
             >
               Export Quote
             </Button>
           </Flex>
-          {/* <div className="separator"></div> */}
+
           {/* right side */}
           <Flex
+            id="quote"
             className="right-side"
             direction="column"
             style={{
@@ -183,7 +199,7 @@ const Home = () => {
             }}
             p={{
               initial: "5",
-              sm: "9",
+              sm: "6",
               lg: "9",
               xl: "9",
               xxl: "9",
@@ -200,7 +216,7 @@ const Home = () => {
               align="left"
               size={{
                 initial: "5",
-                sm: "9",
+                sm: "6",
                 lg: "9",
                 xl: "9",
                 xxl: "9",
@@ -226,7 +242,6 @@ const Home = () => {
               style={{
                 lineHeight: "1.3",
               }}
-              color="teal"
             >
               Derrick Tsorme
             </Text>
