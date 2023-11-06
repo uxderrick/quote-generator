@@ -101,7 +101,7 @@ const Home = () => {
             {/* Size Selector */}
             <Flex gap="3" direction="column" className="no-bg">
               <Text align="left" size="2">
-                Select a size
+                Select a color
               </Text>
 
               {/* Toggle Group */}
@@ -117,7 +117,7 @@ const Home = () => {
                   aria-label="Left aligned"
                 >
                   <Text align="left" size="2">
-                    S
+                    Red
                   </Text>
                 </ToggleGroup.Item>
                 <ToggleGroup.Item
@@ -126,7 +126,7 @@ const Home = () => {
                   aria-label="Center aligned"
                 >
                   <Text align="left" size="2">
-                    L
+                    Yellow
                   </Text>
                 </ToggleGroup.Item>
                 <ToggleGroup.Item
@@ -135,7 +135,7 @@ const Home = () => {
                   aria-label="Right aligned"
                 >
                   <Text align="left" size="2">
-                    XL
+                    Green
                   </Text>
                 </ToggleGroup.Item>
               </ToggleGroup.Root>
