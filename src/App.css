@@ -53,6 +53,8 @@
 .separator {
   width: 1px;
   max-height: 840px;
+  max-width: 840px;
+
   height: 100%;
   background-color: var(--neutral-2, #1b1b1f);
   /* margin: 1rem 0; */
@@ -75,6 +77,10 @@
     background-color: #0d0d0d;
     overflow: scroll;
     padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
   }
 
   .result {
@@ -84,6 +90,10 @@
     flex-direction: column;
     align-items: center;
     margin: 2rem 0;
+  }
+
+  .left-side {
+    width: auto;
   }
 }
 
@@ -111,6 +121,8 @@
 
 .author-text-area {
   width: 100%;
+  max-width: 840px;
+
   border-radius: var(--4, 12px);
   border: 1px solid var(--disabled-content, #5a6165);
   background: var(--neutral-2, #1b1b1f);
@@ -121,6 +133,7 @@
   border-radius: var(--4, 12px);
   border: 1px solid var(--success-10, #35b979);
   background: var(--success-10, #35b979);
+  max-width: 840px;
 }
 
 /* reset */
@@ -136,17 +149,22 @@ button {
   width: fit-content;
 }
 
+.left-side {
+  max-width: 840px;
+}
+
 .ToggleGroupItem {
   background-color: white;
   color: var(--mauve-11);
   height: 35px;
-  width: 35px;
+  width: fit-content;
   display: flex;
   font-size: 15px;
   line-height: 1;
   align-items: center;
   justify-content: center;
   margin-left: 1px;
+  padding: 0 16px;
 }
 .ToggleGroupItem:first-child {
   margin-left: 0;

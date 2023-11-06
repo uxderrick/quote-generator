@@ -37,7 +37,7 @@ const Home = () => {
           }}
           direction={{
             initial: "column",
-            sm: "row",
+            sm: "column",
             lg: "row",
             xl: "row",
             xxl: "row",
@@ -53,7 +53,15 @@ const Home = () => {
         >
           {/* left side */}
           <Flex direction="column" gap="6" className="left-side">
-            <Flex direction="column" gap="2" justify="center" align="center">
+            <Flex
+              direction="column"
+              gap="2"
+              justify="center"
+              align="center"
+              style={{
+                maxWidth: "840px",
+              }}
+            >
               <img
                 src="https://raw.githubusercontent.com/uxderrick/quote-generator/2684162b30ae3bca4f59f0f118498819ba6adea7/src/assets/full%20logo.svg"
                 height="40"
@@ -74,6 +82,7 @@ const Home = () => {
               size="4"
               style={{
                 background: "gray",
+                maxWidth: "840px",
               }}
             />
 
@@ -101,7 +110,7 @@ const Home = () => {
             {/* Size Selector */}
             <Flex gap="3" direction="column" className="no-bg">
               <Text align="left" size="2">
-                Select a size
+                Select a color
               </Text>
 
               {/* Toggle Group */}
@@ -117,7 +126,7 @@ const Home = () => {
                   aria-label="Left aligned"
                 >
                   <Text align="left" size="2">
-                    S
+                    Red
                   </Text>
                 </ToggleGroup.Item>
                 <ToggleGroup.Item
@@ -126,7 +135,7 @@ const Home = () => {
                   aria-label="Center aligned"
                 >
                   <Text align="left" size="2">
-                    L
+                    Yellow
                   </Text>
                 </ToggleGroup.Item>
                 <ToggleGroup.Item
@@ -135,7 +144,7 @@ const Home = () => {
                   aria-label="Right aligned"
                 >
                   <Text align="left" size="2">
-                    XL
+                    Green
                   </Text>
                 </ToggleGroup.Item>
               </ToggleGroup.Root>
