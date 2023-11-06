@@ -22,6 +22,7 @@ const Home = () => {
     const options = {
       logging: true,
       useCors: true,
+      scale: 10,
     };
 
     html2canvas(quote, options).then(function (canvas) {
@@ -51,7 +52,7 @@ const Home = () => {
           }}
           direction={{
             initial: "column",
-            sm: "column",
+            sm: "row",
             lg: "row",
             xl: "row",
             xxl: "row",
@@ -73,7 +74,7 @@ const Home = () => {
               justify="center"
               align="center"
               style={{
-                maxWidth: "840px",
+                maxWidth: "400px",
               }}
             >
               <img
@@ -96,7 +97,7 @@ const Home = () => {
               size="4"
               style={{
                 background: "gray",
-                maxWidth: "840px",
+                maxWidth: "400px",
               }}
             />
 
