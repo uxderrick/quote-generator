@@ -7,10 +7,11 @@ import { Theme } from "@radix-ui/themes";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
     <Theme
-      appearance="light"
+      appearance="light-theme"
       accentColor="white"
-      panelBackground="solid"
-      hasBackground
+      grayColor="gray"
+      // panelBackground="solid"
+      scaling="100%"
     >
       <App />
     </Theme>

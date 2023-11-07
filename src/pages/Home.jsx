@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import {
   Flex,
   Text,
@@ -7,12 +7,21 @@ import {
   Container,
   Separator,
   TextArea,
+  TextField,
 } from "@radix-ui/themes";
-import { ShuffleIcon } from "@radix-ui/react-icons";
+import { ShuffleIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
 import html2canvas from "html2canvas";
 
 const Home = () => {
+  //states
+  const [quote, setQuote] = useState("");
+  const [author, setAuthor] = useState("");
+  const [color, setColor] = useState("");
+  const [authorColor, setAuthorColor] = useState("");
+
+  useEffect(() => {}, [color]);
+
   const clickDerrickURL = () => {
     window.open("https://www.twitter.com/uxderrick");
   };
@@ -27,8 +36,8 @@ const Home = () => {
 
     html2canvas(quote, options).then(function (canvas) {
       const link = document.createElement("a");
-      link.download = "quote.png";
-      link.href = canvas.toDataURL("image/png");
+      link.download = "quote.jpeg";
+      link.href = canvas.toDataURL("image/jpeg");
       link.click();
     });
   };
@@ -103,16 +112,38 @@ const Home = () => {
 
             {/* Quote */}
             <Flex gap="3" direction="column" className="no-bg">
-              <Text align="left" size="2">
-                Enter your quote here
-              </Text>
+              <Flex
+                width="100%"
+                style={{
+                  maxWidth: "400px",
+                }}
+              >
+                <Text
+                  align="left"
+                  size="2"
+                  style={{
+                    width: "100%",
+                  }}
+                >
+                  Enter your quote here
+                </Text>
+                <Text align="left" size="2" color="bronze">
+                  {quote.length}/100
+                </Text>
+              </Flex>
+
+              <TextField.Slot>
+                <MagnifyingGlassIcon height="16" width="16" />
+              </TextField.Slot>
               <TextArea
                 variant="soft"
                 color="white"
                 className="text-area no-bg"
                 placeholder="Enter your quote here"
+                value={quote}
+                onChange={(e) => setQuote(e.target.value)}
+                maxLength={100}
               ></TextArea>
-
               {/* link */}
               <Flex direction="row" align="center" gap="2" className="link">
                 <ShuffleIcon></ShuffleIcon>
@@ -132,34 +163,51 @@ const Home = () => {
               <ToggleGroup.Root
                 className="ToggleGroup"
                 type="single"
-                defaultValue="center"
+                defaultValue="#ffffff"
                 aria-label="Text alignment"
+                onValueChange={(value) => {
+                  setColor(value),
+                    color == "#00749E" ||
+                    color == "#208368" ||
+                    color == "tomato"
+                      ? setAuthorColor("white")
+                      : setAuthorColor("white");
+                }}
               >
                 <ToggleGroup.Item
                   className="ToggleGroupItem"
-                  value="small"
+                  value="#1b1b1f"
                   aria-label="Left aligned"
                 >
                   <Text align="left" size="2">
-                    Red
+                    Dark
                   </Text>
                 </ToggleGroup.Item>
                 <ToggleGroup.Item
                   className="ToggleGroupItem"
-                  value="large"
+                  value="tomato"
+                  aria-label="Left aligned"
+                >
+                  <Text align="left" size="2">
+                    Tomato
+                  </Text>
+                </ToggleGroup.Item>
+                <ToggleGroup.Item
+                  className="ToggleGroupItem"
+                  value="#208368"
                   aria-label="Center aligned"
                 >
                   <Text align="left" size="2">
-                    Yellow
+                    Teal
                   </Text>
                 </ToggleGroup.Item>
                 <ToggleGroup.Item
                   className="ToggleGroupItem"
-                  value="x-large"
+                  value="#00749E"
                   aria-label="Right aligned"
                 >
                   <Text align="left" size="2">
-                    Green
+                    Sky
                   </Text>
                 </ToggleGroup.Item>
               </ToggleGroup.Root>
@@ -167,24 +215,45 @@ const Home = () => {
 
             {/* Author */}
             <Flex gap="3" direction="column" className="no-bg">
-              <Text align="left" size="2">
-                Add an author
-              </Text>
+              <Flex
+                width="100%"
+                style={{
+                  maxWidth: "400px",
+                }}
+              >
+                <Text
+                  align="left"
+                  size="2"
+                  style={{
+                    width: "100%",
+                  }}
+                >
+                  Add an author
+                </Text>
+                <Text align="left" size="2" color="bronze">
+                  {author.length}/20
+                </Text>
+              </Flex>
               <TextArea
                 variant="soft"
                 color="white"
                 className="author-text-area no-bg"
-                placeholder="Enter your quote here"
-              ></TextArea>
+                placeholder="Enter your author here"
+                value={author}
+                onChange={(e) => setAuthor(e.target.value)}
+                maxLength={20}
+              >
+                {author}
+              </TextArea>
             </Flex>
 
             {/* Button */}
             <Button
               variant="solid"
-              color="green"
+              color={quote.length == 0 ? "gray" : "green"}
               className="button no-bg"
               size="2"
-              onClick={downloadImage}
+              onClick={quote.length == 0 ? null : downloadImage}
             >
               Export Quote
             </Button>
@@ -196,7 +265,8 @@ const Home = () => {
             className="right-side"
             direction="column"
             style={{
-              color: "#fff",
+              border: "1px solid #5a6165",
+              backgroundColor: color,
             }}
             p={{
               initial: "5",
@@ -225,9 +295,10 @@ const Home = () => {
               className="author"
               style={{
                 lineHeight: "1.3",
+                color: authorColor,
               }}
             >
-              Derrick Tsorme
+              {author}
             </Text>
             <Text
               align="left"
@@ -243,8 +314,7 @@ const Home = () => {
                 lineHeight: "1.3",
               }}
             >
-              Lore, ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-              a quibusdam doloribus, voluptatem, voluptatum, quod voluptate
+              {quote}
             </Text>
           </Flex>
         </Flex>
