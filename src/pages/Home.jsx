@@ -127,14 +127,10 @@ const Home = () => {
                 >
                   Enter your quote here
                 </Text>
-                <Text align="left" size="2" color="bronze">
+                <Text align="left" size="2" color="amber">
                   {quote.length}/100
                 </Text>
               </Flex>
-
-              <TextField.Slot>
-                <MagnifyingGlassIcon height="16" width="16" />
-              </TextField.Slot>
               <TextArea
                 variant="soft"
                 color="white"
@@ -230,7 +226,7 @@ const Home = () => {
                 >
                   Add an author
                 </Text>
-                <Text align="left" size="2" color="bronze">
+                <Text align="left" size="2" color="amber">
                   {author.length}/20
                 </Text>
               </Flex>
