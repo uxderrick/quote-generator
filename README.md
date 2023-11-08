@@ -1,8 +1,23 @@
-# React + Vite
+# Quote Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple web application built with React to generate and customize quotes.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Enter your own quotes (up to 100 characters).
+- Generate random quotes.
+- Customize text alignment and background colors.
+- Add an author's name to the quote.
+- Export quote images as JPEG files.
+
+## Usage
+
+1. Clone the repository.
+2. Install the dependencies using `npm install`.
+3. Start the development server with `npm run dev`.
+4. Open your web browser and visit [http://localhost:5173](http://localhost:5173).
+5. Create and customize your quotes.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
