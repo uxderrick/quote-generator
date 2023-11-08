@@ -17,6 +17,7 @@ import {
   TextAlignCenterIcon,
   TextAlignRightIcon,
 } from "@radix-ui/react-icons";
+import axios from "axios";
 
 const Home = () => {
   //states
@@ -25,8 +26,27 @@ const Home = () => {
   const [color, setColor] = useState("");
   const [authorColor, setAuthorColor] = useState("");
   const [alignment, setAlignment] = useState("");
+  const [randomQuoteClicked, setRandomQuoteClicked] = useState(false);
 
-  useEffect(() => {}, [color]);
+  const clickRandomQuote = () => {
+    axios
+      .get("https://api.quotable.io/random?maxLength=50")
+      .then((res) => {
+        setQuote(res.data.content);
+        setAuthor(res.data.author);
+        console.log(res.data);
+        setRandomQuoteClicked(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const clearQuote = () => {
+    setQuote("");
+    setAuthor("");
+    setRandomQuoteClicked(false);
+  };
 
   const clickDerrickURL = () => {
     window.open("https://www.twitter.com/uxderrick");
@@ -147,7 +167,13 @@ const Home = () => {
                 maxLength={100}
               ></TextArea>
               {/* link */}
-              <Flex direction="row" align="center" gap="2" className="link">
+              <Flex
+                direction="row"
+                align="center"
+                gap="2"
+                className="link"
+                onClick={clickRandomQuote}
+              >
                 <ShuffleIcon></ShuffleIcon>
                 <Text align="left" size="2" className="link">
                   OR use a random quote
@@ -294,16 +320,29 @@ const Home = () => {
               </TextArea>
             </Flex>
 
-            {/* Button */}
-            <Button
-              variant="solid"
-              color={quote.length == 0 ? "gray" : "green"}
-              className="button no-bg"
-              size="2"
-              onClick={quote.length == 0 ? null : downloadImage}
-            >
-              Export Quote
-            </Button>
+            <Flex gap="4" direction="column" className="no-bg">
+              {/* Button */}
+              <Button
+                variant="solid"
+                color={quote.length == 0 ? "gray" : "green"}
+                className="button no-bg"
+                size="3"
+                onClick={quote.length == 0 ? null : downloadImage}
+              >
+                Export Quote
+              </Button>
+
+              {/* Clear */}
+              <Button
+                variant="outline"
+                color={"red"}
+                className="button no-bg"
+                size="3"
+                onClick={clearQuote}
+              >
+                Clear Quote
+              </Button>
+            </Flex>
           </Flex>
 
           {/* right side */}
