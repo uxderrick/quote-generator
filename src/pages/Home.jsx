@@ -34,7 +34,7 @@ const Home = () => {
       .then((res) => {
         setQuote(res.data.content);
         setAuthor(res.data.author);
-        console.log(res.data);
+        // console.log(res.data);
         setRandomQuoteClicked(true);
       })
       .catch((err) => {
@@ -347,6 +347,7 @@ const Home = () => {
 
           {/* right side */}
           <Flex
+          justify="center"
             id="quote"
             className="right-side"
             direction="column"
