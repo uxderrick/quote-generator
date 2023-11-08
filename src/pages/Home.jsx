@@ -12,6 +12,11 @@ import {
 import { ShuffleIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
 import html2canvas from "html2canvas";
+import {
+  TextAlignLeftIcon,
+  TextAlignCenterIcon,
+  TextAlignRightIcon,
+} from "@radix-ui/react-icons";
 
 const Home = () => {
   //states
@@ -19,6 +24,7 @@ const Home = () => {
   const [author, setAuthor] = useState("");
   const [color, setColor] = useState("");
   const [authorColor, setAuthorColor] = useState("");
+  const [alignment, setAlignment] = useState("");
 
   useEffect(() => {}, [color]);
 
@@ -155,11 +161,11 @@ const Home = () => {
                 Select a color
               </Text>
 
-              {/* Toggle Group */}
+              {/* BG Toggle Group */}
               <ToggleGroup.Root
                 className="ToggleGroup"
                 type="single"
-                defaultValue="#ffffff"
+                // defaultValue="#1b1b1f"
                 aria-label="Text alignment"
                 onValueChange={(value) => {
                   setColor(value),
@@ -173,7 +179,7 @@ const Home = () => {
                 <ToggleGroup.Item
                   className="ToggleGroupItem"
                   value="#1b1b1f"
-                  aria-label="Left aligned"
+                  aria-label="Dark"
                 >
                   <Text align="left" size="2">
                     Dark
@@ -182,7 +188,7 @@ const Home = () => {
                 <ToggleGroup.Item
                   className="ToggleGroupItem"
                   value="tomato"
-                  aria-label="Left aligned"
+                  aria-label="Tomato"
                 >
                   <Text align="left" size="2">
                     Tomato
@@ -191,7 +197,7 @@ const Home = () => {
                 <ToggleGroup.Item
                   className="ToggleGroupItem"
                   value="#208368"
-                  aria-label="Center aligned"
+                  aria-label="Green"
                 >
                   <Text align="left" size="2">
                     Teal
@@ -200,11 +206,56 @@ const Home = () => {
                 <ToggleGroup.Item
                   className="ToggleGroupItem"
                   value="#00749E"
-                  aria-label="Right aligned"
+                  aria-label="Sky"
                 >
                   <Text align="left" size="2">
                     Sky
                   </Text>
+                </ToggleGroup.Item>
+              </ToggleGroup.Root>
+            </Flex>
+
+            {/* Alignment Selector */}
+            <Flex gap="3" direction="column" className="no-bg">
+              <Text align="left" size="2">
+                Select an alignment
+              </Text>
+
+              {/* Alignment Toggle Group */}
+              <ToggleGroup.Root
+                className="ToggleGroup"
+                type="single"
+                defaultValue="left"
+                aria-label="Text alignment"
+                onValueChange={(value) => {
+                  setAlignment(value),
+                    value == "left"
+                      ? setAlignment("left")
+                      : value == "center"
+                      ? setAlignment("center")
+                      : setAlignment("right");
+                }}
+              >
+                <ToggleGroup.Item
+                  className="ToggleGroupItem"
+                  value="left"
+                  aria-label="Left aligned"
+                >
+                  <TextAlignLeftIcon />
+                </ToggleGroup.Item>
+                <ToggleGroup.Item
+                  className="ToggleGroupItem"
+                  value="center"
+                  aria-label="Center aligned"
+                >
+                  <TextAlignCenterIcon />
+                </ToggleGroup.Item>
+                <ToggleGroup.Item
+                  className="ToggleGroupItem"
+                  value="right"
+                  aria-label="Right aligned"
+                >
+                  <TextAlignRightIcon />
                 </ToggleGroup.Item>
               </ToggleGroup.Root>
             </Flex>
@@ -262,7 +313,7 @@ const Home = () => {
             direction="column"
             style={{
               border: "1px solid #5a6165",
-              backgroundColor: color,
+              backgroundColor: color == "" ? "#000000" : color,
             }}
             p={{
               initial: "5",
@@ -280,7 +331,7 @@ const Home = () => {
             }}
           >
             <Text
-              align="left"
+              align={alignment}
               size={{
                 initial: "2",
                 sm: "3",
@@ -297,7 +348,7 @@ const Home = () => {
               {author}
             </Text>
             <Text
-              align="left"
+              align={alignment}
               size={{
                 initial: "5",
                 sm: "6",
